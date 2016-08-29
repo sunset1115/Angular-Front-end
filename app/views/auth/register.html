@@ -1,0 +1,96 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+            <div class="alert alert-danger panel-default login-msg" ng-show="errflag" style="font-size: 13pt;">
+                {{errmsg}}
+            </div>
+            <div class="login-panel panel panel-default" auto-middle>
+                <div class="panel-heading">
+                    <h1 class="panel-title">SIGN UP</h1>
+                </div>
+                <div class="panel-body">
+                    <form role="form" name="userForm">
+                        <fieldset>
+                            <div class="form-group">
+                                <input class="form-control" ng-model="user.name" placeholder="Name" name="name" type="text" autofocus required>
+                                <span class="require-icon" ng-show="userForm.name.$error.required">
+                                    <i class="fa fa-info-circle"></i>
+                                </span>
+                            </div>
+                            <div class="form-group">
+                                <input class="form-control" ng-model="user.emailId" placeholder="Enter E-mail" name="email" type="email" autofocus ng-blur="validEmail(user)" required>
+                                <span class="require-icon" ng-show="userForm.email.$error.required">
+                                    <i class="fa fa-info-circle"></i>
+                                </span>
+                                <span class="require-icon" ng-show="userForm.email.$error.email">
+                                    Invalid email Type
+                                </span>
+                                <span class="require-icon" ng-show="existEmail">
+                                    The email is using now.
+                                </span>
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-md-6">
+                                    <input class="form-control" ng-model="user.userName" placeholder="Username" name="userName" type="text" ng-blur="validUsername(user)" required>
+                                    <span class="require-icon" ng-show="userForm.userName.$error.required">
+                                        <i class="fa fa-info-circle"></i>
+                                    </span>
+                                </div>
+                                <div class="col-md-6">
+                                    <input class="form-control" ng-model="user.password" placeholder="Password" name="password" type="password" required>
+                                    <span class="require-icon" ng-show="userForm.password.$error.required">
+                                        <i class="fa fa-info-circle"></i>
+                                    </span>
+                                    <span class="require-icon" ng-show="existUsername">
+                                        Someone is using it now.
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-md-6">
+                                    <input class="form-control" all-number ng-model="user.phone" placeholder="Phone" name="phone" type="text" required>
+                                    <span class="require-icon" ng-show="userForm.phone.$error.required">
+                                        <i class="fa fa-info-circle"></i>
+                                    </span>
+                                </div>
+                                <div class="col-md-6">
+                                    <input class="form-control" ng-model="user.designation" placeholder="Designation" name="designation" type="text" required>
+                                    <span class="require-icon" ng-show="userForm.designation.$error.required">
+                                        <i class="fa fa-info-circle"></i>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <input class="form-control" ng-model="user.companyName" placeholder="Studio Name" name="stName" type="text">
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-md-6">
+                                    <input class="form-control" ng-model="user.city" placeholder="City" name="city" type="text">
+                                </div>
+                                <div class="col-md-6">
+                                    <input class="form-control" ng-model="user.country" placeholder="Country" name="country" type="text"  required>
+                                    <span class="require-icon" ng-show="userForm.country.$error.required">
+                                        <i class="fa fa-info-circle"></i>
+                                    </span>
+                                </div>
+                            </div>
+                            <a ng-click="signup(user)" ng-disabled="!userForm.$valid" class="btn btn-lg btn-success btn-block">SIGN UP</a>
+                            <div class="checkbox">
+                                <input type="checkbox" ng-model="checked" id="license" required="required" ng-change="updateChecked()"/>
+                                <label for="license"><a ui-sref="license" style="color: #c9c9c9">I accept License and agreement</a></label>
+                                <div role="alert">
+                                    <span class="error" ng-show="licenseAgree">You have to check our License before registering</span>
+                                </div>
+                            </div>
+                            <p>
+                            </p>
+                            <p>
+                                Have a account? &nbsp;&nbsp;<a ui-sref="login">Login</a>
+                            </p>
+                        </fieldset>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

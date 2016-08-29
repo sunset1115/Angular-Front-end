@@ -1,0 +1,115 @@
+.dashboard .my-card {
+    float: right;
+    padding: 15px 10px;
+    border: 1px solid #ccc;
+    background-color: #f5f5f5;
+    border-radius: 5px;
+    margin: 10px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.dashboard .bz-slider {
+    margin: auto;
+    width: 300px;
+    height: 300px;
+    overflow: hidden;
+    background-color: black;
+    border: 1px solid black;
+}
+.dashboard .bz-slide {
+    width: 300px;
+    height: 300px;
+}
+.dashboard .controls {
+    position: absolute;
+    bottom: 0;
+    z-index: 2;
+}
+
+.dashboard .zc-rel {
+    margin: auto;
+}
+
+.dashboard .carousel-panel {
+    height: 310px;
+}
+
+.dashboard .carousel {
+    height: 100%;
+}
+
+.dashboard .carousel-panel .carousel-img-pane {
+    width: 150px;
+    height: 150px;
+}
+
+.dashboard .pagination {
+    margin: 0;
+}
+
+.dashboard .switch {
+    height: 20px;
+    margin: auto;
+}
+
+.dashboard .switch small {
+    height: 20px;
+    width: 20px;
+}
+
+.dashboard .switch.checked {
+    background: rgb(72, 152, 255);
+    border-color: rgb(72, 152, 255);
+}
+
+.dashboard .switch.checked small {
+    left: 32px;
+}
+
+.dashboard .campaign .Live{
+    color: green;
+}
+
+.dashboard .campaign .Pending{
+    color: #d5d500;
+}
+
+.dashboard .campaign .Not.Live{
+    color: darkred;
+}
+
+.dashboard .popover {
+    max-width: 800px;
+    height: 300px;
+}
+
+.dashboard .popover .popover-content {
+    background-color: #f5f5f5;
+    padding: 14px 6px 3px 15px;
+    height: 295px;
+}
+
+.dashboard .popover tbody .btn:enabled {
+    color: #fff;
+    background-color: #337ab7 !important;
+    border-color: #e7e7e7 !important;
+}
+
+.dashboard .popover tbody .btn.active:enabled span {
+    color: #ffcc41;
+}
+
+.dashboard .cal-col {
+    float: left;
+    padding: 0;
+}
+
+.dashboard .cal-col:last-child {
+    margin-left: 30px;
+    width: 250px;
+}
+
+.dashboard .cal-col:last-child .list-group-item:active {
+    background: #eee;
+}
