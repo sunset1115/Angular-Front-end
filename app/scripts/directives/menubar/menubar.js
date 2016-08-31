@@ -15,7 +15,7 @@ angular.module('sbAdminApp')
       replace: true,
       scope: {
       },
-      controller:function($scope){
+      controller: ['$scope', '$rootScope', function($scope, $rootScope){
         $scope.selectedMenu = 'dashboard';
         $scope.collapseVar = 0;
         $scope.multiCollapseVar = 0;
@@ -35,6 +35,12 @@ angular.module('sbAdminApp')
           else
             $scope.multiCollapseVar = y;
         };
+
+        $rootScope.$on('$stateChangeStart', function (event, toState,   toParams, fromState, fromParams)
+        {
+            $scope.showCreateCampaignBtn = (toState.name === "dashboard.setting") || (toState.name === "dashboard.invoice");
+        });
+
       }
-    }
+    ]}
   }]);

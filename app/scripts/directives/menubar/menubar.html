@@ -6,15 +6,21 @@
             </li>
             <li class="divider"></li>
             <li ui-sref-active="active">
-                <a ui-sref="dashboard.chart"><i class="fa fa-user-md fa-fw"></i> Account Setting<span></span></a>
+                <a ui-sref="dashboard.setting"><i class="fa fa-user-md fa-fw"></i> Account Setting<span></span></a>
             </li>
             <li class="divider"></li>
             <li ui-sref-active="active">
-                <a ui-sref="dashboard.table"><i class="fa fa-file-text-o fa-fw"></i> Invoice</a>
+                <a ui-sref="dashboard.invoice"><i class="fa fa-file-text-o fa-fw"></i> Invoice</a>
             </li>
             <li class="divider"></li>
             <li ui-sref-active="active">
                 <a ui-sref="dashboard.form"><i class="fa fa-usd fa-fw"></i> Payment</a>
+            </li>
+            <li class="pull-right forbtn">
+                <button type="button" class="btn btn-info pull-right" ng-show="showCreateCampaignBtn">
+                    <i class="fa fa-plus fa-fw"></i> &nbsp;&nbsp;
+                    Create Campaign
+                </button>
             </li>
         </ul>
     </div>

@@ -191,29 +191,33 @@ angular
                 }
             }
         })
-      .state('dashboard.chart',{
-        templateUrl:'views/chart.html',
-        url:'/chart',
-        controller:'ChartCtrl',
+      .state('dashboard.setting',{
+        templateUrl:'views/dashboard/setting.html',
+        url:'/setting',
+        controller:'SettingCtrl',
         resolve: {
           loadMyFile:function($ocLazyLoad) {
             return $ocLazyLoad.load({
-              name:'chart.js',
-              files:[
-                'bower_components/angular-chart.js/dist/angular-chart.min.js',
-                'bower_components/angular-chart.js/dist/angular-chart.css'
-              ]
-            }),
-            $ocLazyLoad.load({
                 name:'sbAdminApp',
-                files:['scripts/controllers/chartContoller.js']
+                files:['scripts/controllers/settingContoller.js']
             })
           }
         }
     })
-      .state('dashboard.table',{
-        templateUrl:'views/table.html',
-        url:'/table'
+    .state('dashboard.invoice',{
+        templateUrl:'views/dashboard/invoice.html',
+        url:'/invoice',
+        resolve: {
+          loadMyFile:function($ocLazyLoad) {
+              return $ocLazyLoad.load({
+                  name:'sbAdminApp',
+                  files:[
+                      'scripts/controllers/invoiceContoller.js',
+                      'scripts/directives/dashboard/twocalendar/twocalendar.js'
+                  ]
+              })
+          }
+        }
     });
   }]);
 

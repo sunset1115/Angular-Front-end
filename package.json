@@ -1,9 +1,9 @@
 {
-  "name": "plakc",
+  "name": "sb-admin",
   "version": "0.0.0",
   "repository": {
     "type": "git",
-    "url": "https://github.com/sunset1115/Angular-Front-end.git"
+    "url": "https://github.com/start-angular/sb-admin-angular"
   },
   "dependencies": {},
   "devDependencies": {

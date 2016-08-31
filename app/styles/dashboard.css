@@ -107,9 +107,45 @@
 
 .dashboard .cal-col:last-child {
     margin-left: 30px;
-    width: 250px;
 }
 
 .dashboard .cal-col:last-child .list-group-item:active {
     background: #eee;
+}
+
+.dashboard .cal-popover {
+    display:inline-block;
+    min-height:290px;
+    min-width:300px;
+    max-width:850px;
+    width: 850px;
+}
+
+.dashboard .invoice .popover {
+    max-width:850px;
+    width: 850px;
+    left: -781px !important;
+}
+
+.dashboard .invoice .popover .arrow {
+    left: 75%;
+}
+
+.dashboard li.forbtn {
+    background-color: transparent;
+    padding-top: 10px;
+    margin-right: 50px;
+}
+
+/* setting page */
+.setting {
+    margin-top: 5%;
+}
+
+.setting .require-icon {
+    float: right;
+    margin-top: -25px;
+    margin-right: 10px;
+    color: red;
+    font-size: 12pt;
 }
