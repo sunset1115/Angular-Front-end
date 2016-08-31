@@ -1,0 +1,27 @@
+<div class="form-group input-group"> <input type="text" ng-model="searchDate" class="form-control"> <span class="input-group-btn"> <button popover-placement="bottom" popover-is-open="popoverFlag" uib-popover-template="'myPopoverTemplate.html'" class="btn btn-default" type="button"><i class="fa fa-sort-down"></i> </button> <script type="text/ng-template" id="myPopoverTemplate.html"><div class="row cal-popover">
+                <div uib-datepicker ng-model="dt" class="cal-col well well-sm" datepicker-options="cal1options"></div>
+                <div uib-datepicker ng-model="dt1" class="cal-col well well-sm" datepicker-options="cal2options"></div>
+                <div class="cal-col">
+                    <div class="list-group">
+                        <a ng-click="selRange(0)" class="list-group-item">This Month
+                            <i class="fa fa-star pull-right" ng-show="showItemIcon[0]"></i>
+                        </a>
+                        <a ng-click="selRange(1)" class="list-group-item">Last 30 Days
+                            <i class="fa fa-star pull-right" ng-show="showItemIcon[1]"></i>
+                        </a>
+                        <a ng-click="selRange(2)" class="list-group-item">Last 7 Days
+                            <i class="fa fa-star pull-right" ng-show="showItemIcon[2]"></i>
+                        </a>
+                        <a ng-click="selRange(3)" class="list-group-item">Yesterday
+                            <i class="fa fa-star pull-right" ng-show="showItemIcon[3]"></i>
+                        </a>
+                        <a ng-click="selRange(4)" class="list-group-item">Today
+                            <i class="fa fa-star pull-right" ng-show="showItemIcon[4]"></i>
+                        </a>
+                    </div>
+                    <div class="pull-right">
+                        <button type="button" ng-click="closeCalendar(false)" class="btn btn-outline btn-default" style="margin-right:50px;">Cancel</button>
+                        <button type="button" ng-click="closeCalendar(true)" class="btn btn-danger" style="margin-right: 30px;">Apply</button>
+                    </div>
+                </div>
+            </div></script> </span> </div>

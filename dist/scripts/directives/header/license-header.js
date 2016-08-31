@@ -1,0 +1,1 @@
+"use strict";angular.module("sbAdminApp").directive("licenseHeader",function(){return{templateUrl:"scripts/directives/header/license-header.html",restrict:"E",replace:!0,link:function(scope,el,attrs){angular.element(document.querySelector("body")).css({"background-color":"#5a5a5a"})}}});

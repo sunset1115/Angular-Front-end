@@ -1,0 +1,1 @@
+"use strict";angular.module("sbAdminApp").directive("autoHeight",function(){return{restrict:"A",link:function($scope,el,attrs){$(window).bind("load resize",function(){var winH=angular.element(window).height(),elemH=winH-72;window.setTimeout(function(){angular.element(el).css({height:elemH+"px","min-height":elemH+"px",overflow:"auto"})},50)})}}});

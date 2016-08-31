@@ -1,0 +1,1 @@
+"use strict";angular.module("sbAdminApp").directive("autoMiddle",function(){return{restrict:"A",link:function($scope,el,attrs){var winH=angular.element(window).height(),elemH=angular.element(el).height(),marginTop=(winH-elemH)/2;angular.element(el).css({"margin-top":marginTop+"px"})}}});
