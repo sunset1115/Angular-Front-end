@@ -1,0 +1,16 @@
+.campaign-create {
+
+}
+
+.campaign-create .sidebar-nav li{
+    height: 150px;
+    text-align: center;
+}
+
+.campaign-create .sidebar-nav li.active{
+    border-left:4px solid #337ab7;
+}
+
+.campaign-create .sidebar-nav li a{
+    height: 100%;
+}

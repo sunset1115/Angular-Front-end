@@ -1,0 +1,1 @@
+"use strict";angular.module("sbAdminApp").directive("compaignHeader",function(){return{templateUrl:"scripts/directives/header/compaign-header.html",restrict:"E",replace:!0}});

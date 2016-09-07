@@ -1,0 +1,1 @@
+"use strict";angular.module("sbAdminApp").controller("PaymentCtrl",["$scope","$timeout","Advertiser",function($scope,$timeout,Advertiser){}]);

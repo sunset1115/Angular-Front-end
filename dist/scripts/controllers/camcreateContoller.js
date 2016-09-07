@@ -1,0 +1,1 @@
+"use strict";angular.module("sbAdminApp").controller("CampaignCreateCtrl",["$scope","$state","$timeout","$sce","Campaign",function($scope,$state,$timeout,$sce,Camapign){$scope.begin_date=null,$scope.end_date=null,$scope.popoverFlag=!1,$scope.showItemIcon=[!1,!1,!1,!1,!1]}]);

@@ -13,11 +13,13 @@ angular.module('sbAdminApp')
             restrict: 'E',
             replace: true,
             scope: {
+                updateCallback: '&'
             },
-            controller:['$scope', '$rootScope', function($scope, $rootScope){
+            controller: ['$scope', '$rootScope', function ($scope, $rootScope) {
                 var selDateRange = 0;
                 var curDate = null;
                 var last = null;
+
                 $scope.selRange = function (ind) {
                     selDateRange = ind;
                     curDate = moment();
@@ -31,10 +33,10 @@ angular.module('sbAdminApp')
                             last = moment().date(1);
                             break;
                         case 1:
-                            last = curDate.clone().subtract(30, 'd');
+                            last = moment().subtract(30, 'd');
                             break;
                         case 2:
-                            last = moment().subtract(6, 'd');
+                            last = moment().subtract(7, 'd');
                             break;
                         case 3:
                             last = moment().subtract(1, 'd');
@@ -43,12 +45,15 @@ angular.module('sbAdminApp')
                             last = moment();
                             break;
                     }
+
                     var min1 = last.toDate();
                     var min2 = min1;
+
                     var max1 = curDate.toDate();
                     var max2 = max1;
+
                     if (moment(curDate).month() !== moment(last).month()) {
-                        max1 = last.endOf('month').toDate();
+                        max1 = last.clone().endOf('month').toDate();
                         min2 = curDate.clone().date(1).toDate();
                     }
 
@@ -67,11 +72,11 @@ angular.module('sbAdminApp')
                         maxMode: 'day',
                         showWeeks: false
                     };
+
                 };
                 function showCalendarValue() {
                     $scope.searchDate = last.format("MMM DD, YYYY") + ' - ' + curDate.format("MMM DD, YYYY");
-                    console.log($scope.dt1);
-                        console.log($scope.dt2);
+                    $scope.updateCallback({dateVal: {curDate: curDate, last: last}});
                 };
 
                 $scope.closeCalendar = function (flag) {
@@ -80,6 +85,9 @@ angular.module('sbAdminApp')
                     }
                     $scope.popoverFlag = false;
                 }
+
+                $scope.selRange(2);
+                showCalendarValue();
             }]
         }
 

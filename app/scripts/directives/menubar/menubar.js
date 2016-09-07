@@ -15,7 +15,7 @@ angular.module('sbAdminApp')
       replace: true,
       scope: {
       },
-      controller: ['$scope', '$rootScope', function($scope, $rootScope){
+      controller: ['$scope', '$rootScope', '$state', function($scope, $rootScope, $state){
         $scope.selectedMenu = 'dashboard';
         $scope.collapseVar = 0;
         $scope.multiCollapseVar = 0;
@@ -27,6 +27,10 @@ angular.module('sbAdminApp')
           else
             $scope.collapseVar = x;
         };
+
+        $scope.goCampaign = function () {
+          $state.go('campaigncreate.create');
+        }
         
         $scope.multiCheck = function(y){
           
@@ -38,7 +42,7 @@ angular.module('sbAdminApp')
 
         $rootScope.$on('$stateChangeStart', function (event, toState,   toParams, fromState, fromParams)
         {
-            $scope.showCreateCampaignBtn = (toState.name === "dashboard.setting") || (toState.name === "dashboard.invoice");
+            $scope.showCreateCampaignBtn = (toState.name === "dashboard.setting") || (toState.name === "dashboard.payment") || (toState.name === "dashboard.invoice");
         });
 
       }

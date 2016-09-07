@@ -5,8 +5,8 @@
  */
 
 body {
-    /*background-color: #f8f8f8;*/
-    background-color: #5a5a5a;
+    background-color: #f8f8f8;
+    /*background-color: #5a5a5a;*/
 }
 
 #wrapper {
@@ -28,6 +28,13 @@ body {
     }
 
     .dashboard #page-wrapper {
+        position: inherit;
+        margin: 50px 0 0 0;
+        padding: 0 30px;
+        border-left: 1px solid #e7e7e7;
+    }
+
+    .compaign #page-wrapper {
         position: inherit;
         margin: 50px 0 0 0;
         padding: 0 30px;

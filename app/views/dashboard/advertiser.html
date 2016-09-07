@@ -6,7 +6,7 @@
         </div>
         <div class="col-lg-4 col-md-5">
             <div class="my-card">
-                <h4>Total Live Compain</h4>
+                <h4>Total Live Campaign</h4>
                 <p><em>{{user.totalLiveCampaign}}</em></p>
             </div>
             <div class="my-card">
@@ -24,43 +24,7 @@
                 <div class="panel-heading">
                     <h4><i class="fa fa-bar-chart-o fa-fw"></i> &nbsp;&nbsp;&nbsp;&nbsp;Spent Last {{delayDays}} Days : Rs {{totalSpent}}</h4>
                     <div class="pull-right col-md-5 col-xs-6 col-lg-4" style="margin-top: -35px;">
-                        <div class="form-group input-group">
-                            <input type="text" ng-model="searchDate" class="form-control">
-                                <span class="input-group-btn">
-                                    <button popover-placement="bottom" popover-is-open="popoverFlag" uib-popover-template="'myPopoverTemplate.html'" class="btn btn-default" type="button"><i class="fa fa-sort-down"></i>
-                                    </button>
-                                    <script type="text/ng-template" id="myPopoverTemplate.html">
-                                        <div class="row" style="display:inline-block; min-height:290px;min-width:300px;max-width:800px; width: 800px">
-                                            <div uib-datepicker ng-model="dt" class="cal-col well well-sm" datepicker-options="cal1options"></div>
-                                            <div uib-datepicker ng-model="dt1" class="cal-col well well-sm" datepicker-options="cal2options"></div>
-                                            <div class="cal-col">
-                                                <div class="list-group">
-                                                    <a ng-click="selRange(0)" class="list-group-item">This Month
-                                                        <i class="fa fa-star pull-right" ng-show="showItemIcon[0]"></i>
-                                                    </a>
-                                                    <a ng-click="selRange(1)" class="list-group-item">Last 30 Days
-                                                        <i class="fa fa-star pull-right" ng-show="showItemIcon[1]"></i>
-                                                    </a>
-                                                    <a ng-click="selRange(2)" class="list-group-item">Last 7 Days
-                                                        <i class="fa fa-star pull-right" ng-show="showItemIcon[2]"></i>
-                                                    </a>
-                                                    <a ng-click="selRange(3)" class="list-group-item">Yesterday
-                                                        <i class="fa fa-star pull-right" ng-show="showItemIcon[3]"></i>
-                                                    </a>
-                                                    <a ng-click="selRange(4)" class="list-group-item">Today
-                                                        <i class="fa fa-star pull-right" ng-show="showItemIcon[4]"></i>
-                                                    </a>
-                                                </div>
-                                                <div class="pull-right">
-                                                    <button type="button" ng-click="closeCalendar(false)" class="btn btn-outline btn-default" style="margin-right:50px;">Cancel</button>
-                                                    <button type="button" ng-click="closeCalendar(true)" class="btn btn-danger" style="margin-right: 30px;">Apply</button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </script>
-
-                                </span>
-                        </div>
+                        <two-calendar date-val="dateVal" update-callback="calCallback(dateVal)"></two-calendar>
                     </div>
                 </div>
                 <!-- /.panel-heading -->
@@ -104,7 +68,7 @@
         <div class="col-lg-12">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <button type="button" class="btn btn-info">
+                    <button type="button" ng-click="createCampaign()" class="btn btn-info">
                         <i class="fa fa-plus fa-fw"></i> &nbsp;&nbsp;
                         Create Campaign
                     </button>
@@ -112,18 +76,85 @@
                         <div class="row">
                             <div class="col-md-7">
                                 <div class="form-group input-group">
-                                    <input type="text" class="form-control">
+                                    <input type="text" class="form-control" ng-model="sortSeed">
                                     <span class="input-group-btn">
                                         <button class="btn btn-default" type="button"><i class="fa fa-search"></i>
                                         </button>
                                     </span>
                                 </div>
                             </div>
-                            <div class="col-md-5">
-                                <button type="button" class="btn btn-outline btn-default">
+                            <div class="col-md-5 sort-pane">
+                                <button type="button" popover-is-open="sortPopoverFlag" popover-placement="bottom" uib-popover-template="'mySortTemplate.html'" class="btn btn-outline btn-default">
                                     <i class="fa fa-sort-down"></i>
                                 </button>
                                 <button type="button" class="btn btn-outline btn-info">Expert</button>
+
+                                <script type="text/ng-template" id="mySortTemplate.html">
+                                    <div class="row sort-popover">
+                                        <div class="list-group">
+                                            <a ng-click="selSort(0)" class="list-group-item">
+                                                <div class="row">
+                                                    <div class="col-md-2">
+                                                        <i class="fa fa-check" ng-show="showSortItem[0]"></i>
+                                                    </div>
+                                                    <div class="col-md-10">
+                                                        Comapign Name
+                                                    </div>
+                                                </div>
+                                            </a>
+                                            <a ng-click="selSort(1)" class="list-group-item">
+                                                <div class="row">
+                                                    <div class="col-md-2">
+                                                        <i class="fa fa-check" ng-show="showSortItem[1]"></i>
+                                                    </div>
+                                                    <div class="col-md-10">
+                                                        Status
+                                                    </div>
+                                                </div>
+                                            </a>
+                                            <a ng-click="selSort(2)" class="list-group-item">
+                                                <div class="row">
+                                                    <div class="col-md-2">
+                                                        <i class="fa fa-check" ng-show="showSortItem[2]"></i>
+                                                    </div>
+                                                    <div class="col-md-10">
+                                                        Comapign ID
+                                                    </div>
+                                                </div>
+                                            </a>
+                                            <a ng-click="selSort(3)" class="list-group-item">
+                                                <div class="row">
+                                                    <div class="col-md-2">
+                                                        <i class="fa fa-check" ng-show="showSortItem[3]"></i>
+                                                    </div>
+                                                    <div class="col-md-10">
+                                                        Reach
+                                                    </div>
+                                                </div>
+                                            </a>
+                                            <a ng-click="selSort(4)" class="list-group-item">
+                                                <div class="row">
+                                                    <div class="col-md-2">
+                                                        <i class="fa fa-check" ng-show="showSortItem[4]"></i>
+                                                    </div>
+                                                    <div class="col-md-10">
+                                                        Budget Allocated
+                                                    </div>
+                                                </div>
+                                            </a>
+                                            <a ng-click="selSort(5)" class="list-group-item">
+                                                <div class="row">
+                                                    <div class="col-md-2">
+                                                        <i class="fa fa-check" ng-show="showSortItem[5]"></i>
+                                                    </div>
+                                                    <div class="col-md-10">
+                                                        End
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </script>
                             </div>
                         </div>
                     </div>

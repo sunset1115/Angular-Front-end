@@ -1,0 +1,1 @@
+"use strict";angular.module("sbAdminApp").directive("comcreateHeader",function(){return{templateUrl:"scripts/directives/header/comcreate-header.html",restrict:"E",replace:!0}});

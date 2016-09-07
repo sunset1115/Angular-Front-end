@@ -1,0 +1,17 @@
+<div class="row" style="text-align: center">
+    <nav>
+        <button ng-click="goPrevious()"><i class="fa fa-angle-double-left"></i></button>
+        <button ng-click="goNext()"><i class="fa fa-angle-double-right"></i></button>
+        <button ng-click="zoomIn()"><i class="fa fa-search-plus"></i></button>
+        <button ng-click="fit()"><i class="fa fa-search"></i></span></button>
+        <button ng-click="zoomOut()"><i class="fa fa-search-minus"></i></button>
+
+        <button ng-click="rotate()"><i class="fa  fa-rotate-left"></i></button>
+    </nav>
+    <hr>
+</div>
+<div class="row" style="height: 85vh; overflow: auto">
+    {{loading}}
+    <canvas id="pdf-canvas" class="rotate0"></canvas>
+</div>
+

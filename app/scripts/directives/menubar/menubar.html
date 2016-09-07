@@ -14,10 +14,10 @@
             </li>
             <li class="divider"></li>
             <li ui-sref-active="active">
-                <a ui-sref="dashboard.form"><i class="fa fa-usd fa-fw"></i> Payment</a>
+                <a ui-sref="dashboard.payment"><i class="fa fa-usd fa-fw"></i> Payment</a>
             </li>
             <li class="pull-right forbtn">
-                <button type="button" class="btn btn-info pull-right" ng-show="showCreateCampaignBtn">
+                <button type="button" ng-click="goCampaign()" class="btn btn-info pull-right" ng-show="showCreateCampaignBtn">
                     <i class="fa fa-plus fa-fw"></i> &nbsp;&nbsp;
                     Create Campaign
                 </button>

@@ -17,6 +17,7 @@ angular.module('sbAdminApp')
 	  var curDate = null;
 	  var last = null;
 	  var selDateRange = 2;  //0-this month, 1-last 30 days, 2-last 7 days, 3- yesterday,4 - Today
+	  var seedInd = 0;
 
 	  $scope.init = function() {
 		  showCampaign();
@@ -37,65 +38,14 @@ angular.module('sbAdminApp')
 					  $state.go('login');
 				  });
 
-		  $scope.selRange(1);
-		  showCalendarValue();
+		  $scope.calCallback = drawGraph;
+		  $scope.selSort(0);
 	  };
 
-	  $scope.selRange = function (ind) {
-		  selDateRange = ind;
-		  curDate = moment();
-		  last = null;
-
-		  $scope.showItemIcon = [false, false, false, false, false];
-		  $scope.showItemIcon[ind] = true;
-
-		  switch (ind) {
-			  case 0:
-				  last = moment().date(1);
-				  break;
-			  case 1:
-				  last = curDate.clone().subtract(30, 'd');
-				  break;
-			  case 2:
-				  last = moment().subtract(6, 'd');
-				  break;
-			  case 3:
-				  last = moment().subtract(1, 'd');
-				  break;
-			  default:
-				  last = moment();
-				  break;
-		  }
-		  var min1 = last.toDate();
-		  var min2 = min1;
-		  var max1 = curDate.toDate();
-		  var max2 = max1;
-		  if (moment(curDate).month() !== moment(last).month()) {
-			  max1 = last.endOf('month').toDate();
-			  min2 = curDate.clone().date(1).toDate();
-		  }
-
-		  $scope.cal1options = {
-			  minDate: min1,
-			  maxDate: max1,
-			  initDate: moment().subtract(1, 'months').toDate(),
-			  maxMode: 'day',
-			  showWeeks: false
-		  };
-
-		  $scope.cal2options = {
-			  minDate: min2,
-			  maxDate: max2,
-			  initDate: moment().toDate(),
-			  maxMode: 'day',
-			  showWeeks: false
-		  };
-	  }
-
 	  // draw graph;
-	  function drawGraph () {
-		  var a = new Date(last);
-		  var b = new Date(curDate);
+	  function drawGraph (calVal) {
+		  var a = new Date(calVal.last);
+		  var b = new Date(calVal.curDate);
 		  Advertiser.getGraphdata(a.getTime(),b.getTime())
 			  .then(function (res) {
 				  var retVal = res.data;
@@ -135,18 +85,6 @@ angular.module('sbAdminApp')
 			  });
 	  };
 
-	  function showCalendarValue() {
-		  $scope.searchDate = last.format("MMM DD, YYYY") + ' - ' + curDate.format("MMM DD, YYYY");
-		  drawGraph();
-	  }
-
-	  $scope.closeCalendar = function (flag) {
-		  if (flag) {
-			  showCalendarValue();
-		  }
-		  $scope.popoverFlag = false;
-	  }
-
 	  /**
 	   * ========= start slide part =========
 	   * $scope.s_info: slide informations;
@@ -168,6 +106,11 @@ angular.module('sbAdminApp')
 	  /**
 	   * -------- campaign table ---------
 	   */
+
+	  $scope.createCampaign = function () {
+		  $state.go('campaigncreate.create');
+	  }
+
 	  function showCampaign() {
 		  Camapign.getAll()
 			  .then(function (res) {
@@ -181,5 +124,30 @@ angular.module('sbAdminApp')
 
 	  $scope.showDate = function (timeVal) {
 		  return moment(timeVal).format("MMM DD, YYYY");
+	  }
+
+	  $scope.selSort = function (ind) {
+		  seedInd = ind;
+		  $scope.showSortItem = [false, false, false, false, false, false];
+		  $scope.showSortItem[ind] = true;
+		  $scope.sortPopoverFlag = false;
+		  sorting();
+	  }
+
+	  $scope.$watch('sortSeed', function (val) {
+		  sorting();
+	  });
+
+	  function sorting() {
+		  var seed = $scope.sortSeed;
+		  var tempArr = $scope.campaigns;
+		  var retArr = [];
+		  angular.forEach(tempArr, function(row) {
+			  var temp = row[seed];
+			  console.log(temp);
+			  if (temp.indexOf(seed) >= 0) retArr.push(row);
+		  });
+
+		  $scope.compaigns = retArr;
 	  }
   }]);
