@@ -12,8 +12,8 @@ angular.module('sbAdminApp')
         this.authToken = null;
         this.init = function() {
             this.authToken = Auth.getCurrntToken();
-            if (!this.authToken)
-                $state.go('login');
+            //if (!this.authToken)
+                //$state.go('login');
         };
 
         this.getUserInfo = function () {

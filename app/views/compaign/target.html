@@ -1,3 +1,73 @@
 <div class="row">
-    Target Pane
+    <div class="col-md-8 col-md-offset-2 campaign-target-pane">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+
+                <h1><i class="fa fa-list-alt fa-fw"></i></h1>
+                <h3>TARGET
+                </h3>
+                Define Location, Budget and Schedule
+            </div>
+            <!-- /.panel-heading -->
+            <div class="panel-body">
+                <form role="form">
+                    <fieldset>
+                        <div class="form-group row">
+                            <div class="col-md-3 col-md-offset-2 col-xs-offset-1 col-xs-4">
+                                <div class="label-pane pull-right">
+                                    Campaign Name&nbsp;&nbsp;<i class="fa fa-info-circle" tooltip-placement="top" uib-tooltip="Campaign Name"></i>
+                                </div>
+                            </div>
+                            <div class="col-md-5 col-xs-5">
+                                <input class="form-control" ng-model="campaign.name" value="" type="text" autofocus>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-md-3 col-md-offset-2 col-xs-offset-1 col-xs-4">
+                                <div class="label-pane pull-right">
+                                    Start Date&nbsp;&nbsp;<i class="fa fa-info-circle" tooltip-placement="top" uib-tooltip="Campaign Start Date"></i>
+                                </div>
+                            </div>
+                            <div class="col-md-5 col-xs-5">
+                                <p class="input-group">
+                                <span class="input-group-btn">
+                                    <button type="button" class="btn btn-default" ng-click="openStartCal()"><i class="glyphicon glyphicon-calendar"></i></button>
+                                </span>
+                                    <input type="text" class="form-control" uib-datepicker-popup="MMM d, yyyy" ng-model="campaign.start" is-open="startOpened" datepicker-options="dateOptions" ng-required="true" close-text="Close" alt-input-formats="altInputFormats" />
+                                </p>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-md-3 col-md-offset-2 col-xs-offset-1 col-xs-4">
+                                <div class="label-pane pull-right">
+                                    End Date&nbsp;&nbsp;<i class="fa fa-info-circle" tooltip-placement="top" uib-tooltip="Campaign End Date"></i>
+                                </div>
+                            </div>
+                            <div class="col-md-5 col-xs-5">
+                                <p class="input-group">
+                                <span class="input-group-btn">
+                                        <button type="button" class="btn btn-default" ng-click="openEndCal()"><i class="glyphicon glyphicon-calendar"></i></button>
+                                    </span>
+                                    <input type="text" class="form-control" uib-datepicker-popup="MMM d, yyyy" ng-model="campaign.end" is-open="endOpened" datepicker-options="dateOptions" ng-required="true" close-text="Close" alt-input-formats="altInputFormats" />
+                                </p>
+                            </div>
+                        </div>
+                        <p>&nbsp;</p>
+                        <p>&nbsp;</p>
+                        <!-- Change this to a button or input when using this as a form -->
+                        <div class="row">
+                            <div class="col-md-2 col-md-offset-2">
+                                <a ng-click="login()" class="btn btn-lg btn-default btn-block">cancel</a>
+                            </div>
+                            <div class="col-md-2 col-md-offset-4">
+                                <a ng-click="login()" class="btn btn-lg btn-success btn-block">Next</a>
+                            </div>
+                        </div>
+
+                    </fieldset>
+                </form>
+            </div>
+            <!-- /.panel-body -->
+        </div>
+    </div>
 </div>

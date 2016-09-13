@@ -40,7 +40,7 @@ angular
           target: 'body'
       });*/
 
-    $urlRouterProvider.otherwise('/login');
+    $urlRouterProvider.otherwise('/campaigncreate/create');
 
     $stateProvider
     .state('dashboard', {
@@ -500,7 +500,7 @@ angular
                     $ocLazyLoad.load({
                         name:'sbAdminApp',
                         files:[
-                            'scripts/controllers/camcreateContoller.js',
+                            'scripts/controllers/camtargetContoller.js',
                             'scripts/directives/dashboard/twocalendar/twocalendar.js',
                             'scripts/services/advertiser.js',
                             'scripts/services/campaign.js'

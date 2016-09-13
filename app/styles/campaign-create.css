@@ -14,3 +14,54 @@
 .campaign-create .sidebar-nav li a{
     height: 100%;
 }
+
+.campaign-create-pane {
+    margin-top: 100px;
+}
+
+.campaign-create-pane .panel-heading {
+    padding: 50px;
+    text-align: center;
+}
+
+.campaign-create-pane .panel-heading h3, .campaign-create-pane .panel-heading h1{
+    text-align: center;
+}
+
+.campaign-create-pane .label-pane {
+    font-size: 15pt;
+    margin-top: 5px;
+}
+
+.campaign-create-pane .form-group {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.campaign-create-pane .form-group .fa-calendar {
+    position: absolute;
+    top: 10px;
+    left: 20px;
+}
+
+.campaign-create-pane .form-group .cal-inbox {
+    padding-left: 30px;
+}
+
+.campaign-create-pane input.form-control {
+    font-size: 14pt;
+    font-weight: bold;
+}
+
+/* ==============================================
+ * campaign target page css =====================
+ *===============================================*/
+
+.campaign-target-pane {
+    margin-top: 60px;
+}
+
+.campaign-target-pane .panel-heading {
+    padding: 20px;
+    text-align: center;
+}
